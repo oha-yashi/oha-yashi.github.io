@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>ナンプレ攻略 in web</title>
+        <link href="styles/style.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1>ナンプレ攻略 in web</h1>
+        <p>（大抵の）ナンプレを解いてくれるプログラムをjQueryを利用してJavaScriptに移植し、web上で使えるようにしてみました。<br>
+            （プログラム移植は一応完成。デザインは適宜変更したい）</p>
+
+        <hr>
+
+        <div id="viewField" style="float: left"></div>
+
+        <div id="buttonField">各ステップの解答用関数を実行するボタン<br>
+            <p> scan BOX -><br>
+                <span id="buttonstep">各種関数ボタン繰り返し</span><br>
+                -> REFRESH </p>
+            <button id="scanButton">scan BOX</button><br>
+            <button id="onlytwopairButton">OnlyTwoPair</button><br>
+            <button id="findpairButton">findPair</button><br>
+            <button id="read_and_deleteButton">read_and_delete</button><br>
+            <button id="findAllOnlyOneButton">findAllOnlyOne</button><br>
+            <button id="checknumButton">checkNumAll</button>
+            <hr>
+            <button id="autoButton" class="bigbutton">AutoSolve</button>自動解答<br>（空きマスが0埋めされたらもう一回押す）<br>
+            <button id="refreshmasuButton" class="bigbutton">REFRESH</button><br>
+            <button id="resetButton" class="bigbutton">RESET</button>
+        </div>
+
+        <div id="testField" style="clear: both">
+            <hr>
+            <p>テストスペース</p>
+            
+        </div>
+
+        <hr>
+
+        <div id="expPlus">
+            jQueryの動作おためしスペース<br>
+        </div>
+
+        <hr>
+
+
+        <p>元のプログラムは下記参照</p>
+        <ul>
+            <li>プログラムにナンプレを解かせたい - その4 - おはやし日記<br>
+                <a href=https://o-treetree.hatenablog.com/entry/sudoku-4 target="_blank">https://o-treetree.hatenablog.com/entry/sudoku-4</a></li>
+
+            <li>oha-yashi/sudoku: ナンプレ攻略プログラム<br>
+                <a href="https://github.com/oha-yashi/sudoku" target="_blank">https://github.com/oha-yashi/sudoku</a></li>
+        </ul>
+
+        <div>
+            <a href="../index.html">前に戻る</a>
+        </div>
+        <!-- JavaScript -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="scripts/plus.js"></script>
+        <script src="scripts/calc.js"></script>
+        <script src="scripts/menu.js"></script>
+        <script src="scripts/main.js"></script>
+
+        <script src="scripts/testcase.js"></script>
+    </body>
+</html>

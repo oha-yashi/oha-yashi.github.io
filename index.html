@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="oha-yashi">
+        <meta name="description" content="HTML+CSS+JavaScriptで遊んでみた by oha-yashi">
+        <title>oha-yashi web test</title>
+        <link href="https://fonts.googleapis.com/css2?family=Nova+Mono&display=swap" rel="stylesheet"> 
+        <!-- アイコン設定 -->
+        <link rel="icon" href="img/ohayashi-icon.png">
+        <link rel="shortcut icon" href="img/ohayashi-icon.png">
+        <link rel="apple-touch-icon" href="img/ohayashi-icon.png">
+        <style>
+            body{
+                margin: auto;
+                padding: 1%;
+            }
+            .icon{
+                height: 2em;
+                width : 2em
+            }
+            .new {
+                animation: blinkAnime 0.2s infinite alternate;
+            }
+            @keyframes blinkAnime{
+                0% { color: #ff0000 }
+                100% { color: #1a1aff }
+            }
+        </style>
+    </head>
+    <!--
+        github push:
+        git add .
+        git commit -m "changed"
+        git push -u origin master
+
+        localhost:
+        python -m SimpleHTTPServer 8000
+    -->
+    <body>
+        <h1><a href="https://mstdn.jp/@hys2490" target="_blank"><img src="img/ohayashi-icon.png" class="icon" 
+            alt="めっちゃかわいいアイコン"></a> hello, world!</h1>
+        <p>HTML + CSS + JavaScript で作ってみたもの置き場</p>
+
+        <p>接続 : <span id="place"></span></p>
+        <script>
+            var place=document.getElementById("place");
+            if(document.URL.slice(0,27)==="https://oha-yashi.github.io"){
+                place.textContent="github pages"
+            }else if(document.URL.slice(0,5)==="file:"){
+                place.textContent="HTMLファイル直接展開"
+            }else if(document.URL.slice(0,17)==="http://localhost:"){
+                place.textContent="ローカルホスト"
+            }
+        </script>
+
+        <p>作業<span id="days"></span>日目。from 2020/04/16</p>
+        <p>github pages で公開。ソースは以下</p>
+        <p><a href="https://github.com/oha-yashi/oha-yashi.github.io">https://github.com/oha-yashi/oha-yashi.github.io</a></p>
+
+        <ul>
+            <li>test1: 最初に作ってみた → 
+                <a class="myref" href="test1/index.html"></a>
+            </li>
+
+            <li class="new">np-jq: ナンプレ攻略プログラム移植 → 
+                <a class="myref" href="np-jq/index.html"></a>
+            </li>
+
+            <li>num-guess-game → 
+                <a class="myref" href="num-guess-game/index.html"></a>
+            </li>
+
+            <li>test2 → 
+                <a class="myref" href="test2/index.html"></a>
+            </li>
+
+            <li>omikuji: おみくじ →
+                <a class="myref" href="omikuji/index.html"></a>
+            </li>
+
+            <li>
+                kaomoji: 顔文字ジェネレーター →
+                <a class="myref" href="kaomoji/index.html"></a>
+            </li>
+
+            <li>
+                localhosttest: ローカルホストテスト（<a href="https://o-treetree.hatenablog.com/entry/2020/04/21/190002">ブログ記事</a>）をgithub.ioに移植 →
+                <a class="myref" href="localhosttest/index.html"></a>
+            </li>
+
+            <li>
+                jparchive: mstdn.jpのアーカイブ → 閉鎖中
+                <!--
+                <a class="myref" href="jparchive/index.html"></a>
+                -->
+            </li>
+        </ul>
+
+        <p>ブログ : <a rel="me" href="https://o-treetree.hatenablog.com/">おはやし日記</a></p>
+        <p>mstdn.jp : <a rel="me" href="https://mstdn.jp/@hys2490">おはやし🌲🌲</a></p>
+        <p>jp鯖は6月末で閉鎖になる見込みです。今後は</p>
+        <p>best-friends.chat : <a rel="me" href="https://best-friends.chat/@hys2490">おはやし🌴🌴 </a></p>
+
+        <hr>
+
+        ↓$\mathrm{MathJax}$のテスト<br>
+        2次方程式 $ax^2 + bx + c =0$ の解は
+        $$
+        x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
+        $$
+        である。<br>
+        和記号の上下を綺麗に出すには<span>$$</span>で囲う
+        $$
+        \sum_{i=0}^{2}A_i = A_0 + A_1 + A_2
+        $$
+        単に<span>$</span>で囲うと（インライン）こうなる→$\sum_{i=0}^{2}A_i = A_0 + A_1 + A_2$
+
+    <!-- MathJaxをつかう使うためのjavascript -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { 
+            
+            inlineMath: [['$','$'], ["\\(","\\)"]] 
+            //*/
+        } });
+    </script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML">
+    </script>
+
+        <script>
+            var allMyref = document.querySelectorAll(".myref");
+            for(var i=0; i<allMyref.length; i++){
+                allMyref[i].textContent = "こちら";
+            }
+
+            const startDay = new Date(2020,3,16);//月は0始まり
+            var today = new Date();
+            var days = document.getElementById("days");
+            days.textContent = Math.floor((today - startDay)/(1000*24*60*60));
+            /* スマホ対応 */
+            /** ピクセル密度。スマホは1ピクセルが小さいので1/scale倍の表示になる */
+            var scale = window.devicePixelRatio;
+            var body = document.getElementsByTagName("body").item(0);
+            body.style.fontSize=scale+"em";
+            /** デカイ画面では幅480px、それより狭ければフィットさせる */
+            if(window.innerWidth<(480*scale)){
+                body.style.width = window.innerWidth+"px";
+            }else{
+                body.style.width = 480*scale+"px";
+            }
+        </script>
+    </body>
+</html>

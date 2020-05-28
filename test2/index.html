@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <button> I /[O]</button>
+        <p>OFF.</p>
+
+        <script>
+            const btn = document.querySelector("button");
+            const txt = document.querySelector("p");
+
+            btn.onclick = function(){
+                if(btn.textContent === " I /[O]"){
+                    btn.textContent = "[I]/ O ";
+                    txt.textContent = "ON!";
+                }else{
+                    btn.textContent = " I /[O]";
+                    txt.textContent = "OFF.";
+                }
+            }
+        </script>
+    </body>
+</html>

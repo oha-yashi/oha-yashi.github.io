@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<heml lang="ja">
+  <meta charset="utf-8">
+  <head>
+    <title>顔文字ジェネレーター</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1>顔文字ジェネレーター</h1>
+    <p>顔文字のパーツを選んで組み合わせる</p>
+    <p>今の所は手入力</p>
+
+    <div>
+      <label for="eye">目 : </label><input type="text" id="eye">
+      <label for="mouth">口 : </label><input type="text" id="mouth"><br>
+      <label for="shapeL">輪郭（左） : </label><input type="text" id="shapeL">
+      <input type="text" id="shapeR"><label for="shapeR"> : （右）</label><br>
+      <label for="armL">腕（左） : </label><input type="text" id="armL">
+      <input type="text" id="armR"><label for="armR"> : （右）</label>
+    </div>
+    
+    <div>
+      <button id="make">生成！</button><button id="reset">リセット</button><br>
+      <textarea id="result"></textarea>
+    </div>
+    
+    <div>
+      <a href="../index.html">前に戻る</a>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</heml>

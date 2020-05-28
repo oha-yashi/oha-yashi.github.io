@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>おみくじ</title>
+    </head>
+    <body>
+        <h1>おみくじ 〜入力に対する結果の出力〜</h1>
+        <div id="inputField">
+            <p>ここに情報を入力する</p>
+            名前 : <input type="text" id="namebox" value=""><br>
+            誕生日 : <input type="text" id="datebox" value="" maxlength="8">西暦1990年4月15日→[19900415]<br>
+            血液型 : 
+            <input type="radio" name="blood" value="A">A型
+            <input type="radio" name="blood" value="B">B型
+            <input type="radio" name="blood" value="O">O型
+            <input type="radio" name="blood" value="AB">AB型<br>
+            <input type="submit" id="submitButton" value="判定">
+            <input type="reset" id="resetButton" value="リセット">
+
+        </div>
+        <div id="outputField">
+            <p>ここに結果を表示する</p>
+            <span id="nameout"></span>
+            <span id="dateout"></span>
+            <span id="bloodout"></span>
+            <p id="unsei"></p>
+        </div>
+
+        <!-- JavaScript -->
+        <script src="main.js"></script>
+    </body>
+</html>

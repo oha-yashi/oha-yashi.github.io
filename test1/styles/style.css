@@ -1,0 +1,49 @@
+html {
+    font-family: 'Noto Serif JP', serif;
+    background-color: aquamarine;
+}
+
+body {
+    width: 600px;
+    margin: 0 auto;
+    background-color: #FF9500;
+    padding: 0 20px 20px 20px;
+    border: 5px solid black;
+}
+
+img {
+    display: block;/* blockレベルに指定してmarginを取れるようにする */
+    margin: 0 auto;
+    width: 300px;
+}
+
+h1 {
+    margin: 0;
+    padding: 20px 0;    
+    color: #00539F;
+    text-shadow: 3px 3px 1px black;
+    font-size: 60px;
+    text-align: center;
+}
+
+p, li, ol {
+    font-size: 16px;    
+    line-height: 2;
+    letter-spacing: 1px;
+}
+
+#red-column {
+    color: red;
+}
+
+#yellow-big {
+    font-size: 150%;
+    color: yellow;
+    background-color: black;
+}
+
+/*
+.secret {
+    visibility: hidden;
+}
+*/

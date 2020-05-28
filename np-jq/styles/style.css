@@ -1,0 +1,61 @@
+html {
+    font-family: 'M PLUS 1p', sans-serif;
+}
+
+body {
+    background-color: lightskyblue;
+    margin: 0 auto;
+    padding: 0 5%;
+    width: 750px;
+}
+
+h1 {
+    text-align: center;
+}
+
+button {
+    margin: 1px;
+}
+
+hoge{
+    background-color: rgb(90, 90, 90);
+}
+
+.bigbutton{
+    padding: 0;
+    margin: 3px;
+    width: 6em;
+    height: 1.5em;
+    color: black;
+    background-color: white;
+    font-size: 1em;
+}
+
+/* マス目 */
+#viewField div input{
+    font-size: 36px;
+    width: 1.2em;
+    height: 1.2em;
+    text-align: center;
+}
+
+
+
+
+
+/* テストスペース1 */
+#expPlus{
+    background-color: yellowgreen;
+    margin: 5px 5%;
+    padding: 0 10%;
+}
+
+#expPlus input{
+    margin: 0em;
+    width: 1.5em;
+}
+
+/* テストスペース2 */
+#testField{
+    font-family: 'Inconsolata', monospace;
+}
