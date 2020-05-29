@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>javascriptでJSON編集</title>
+    <style>
+      #show{
+        border: 3px solid;
+        /*
+        width: 30ex;
+        height: 30em;
+        */
+      }
+      .imaginarybutton{
+        border: 2px solid;
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>マストドンアーカイブデータからDMデータの削除</h1>
+
+    <div>
+      <h2>説明</h2>
+      <p>マストドンのアーカイブデータ<code>outbox.json</code>からDMのデータを削除し、鍵トゥ（フォロワー限定）について<code>type</code>の変更をします。</p>
+      <p><a href="https://oha-yashi.github.io/jparchive/index.html">アーカイブ表示</a>で使うファイルの生成のために作ったプログラムです。</p>
+      <h3>注意</h3>
+      <p>
+        このプログラムはインターネットにデータを送らず、ユーザー側で完結していますが、心配な方は利用しないでください。このプログラムを使用したことに伴う損害などについては一切責任を負いません。<br>
+        <a href="https://github.com/oha-yashi/oha-yashi.github.io/tree/master/jparchive">github</a>上にプログラムを公開していますのでそれをダウンロードしてリモートホストで実行するという方法もあります。
+      </p>
+      <h3>使用方法</h3>
+      <ul>
+        <li>ここをクリックしてJSONファイルを選択 をクリックして、読み込むファイル（<code>outbox.json</code>）を選択</li>
+        <li>インスタンス名を入力</li>
+        <li>ユーザー名を入力（@は除く）</li>
+        <li>
+          <code>選択したファイル名</code>をロード のボタンをクリック<br>
+          入力が足りなかったり、入力したインスタンス+ユーザー名がJSONの内部と食い違っているとその旨表示されます。
+        </li>
+        <li>変換が完了すると「ダウンロード可能！」と出て「ダウンロード」のリンクが踏めるようになるのでそこをクリックして<code>safe.json</code>をダウンロードします。（ブラウザによっては新規タブで開かれたりするかもしれません）</li>
+      </ul>
+      <h3>動作確認</h3>
+      <ul>macOS 10.14.6
+        <li>Firefox 76.0.1</li>
+        <li>Firefox Developer Edition 77.0beta</li>
+        <li>Safari 13.1</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2>ファイル編集</h2>
+      <label for="getfile" class="imaginarybutton">ここをクリックしてJSONファイルを選択</label><input id="getfile" type="file" accept=".json" class="getfile" style="opacity: 0;"><br>
+      <label for="server">インスタンス ex.)mstdn.jp : </label><input type="text" id="server"><br>
+      <label for="name">ユーザー名 ex.)hys2490 : </label><input type="text" id="name"><br>
+      <button id="loadjson">jsonをロード</button>
+    </div>
+
+    <a id="dl">ダウンロード</a>
+    <div>
+      <p id="show">まずはアーカイブのJSONを読み込んでください</p>
+    </div>
+
+    <h3>動作</h3>
+    <p>マストドンのアーカイブファイル<code>outbox.json</code>の中身が（なんとなく）わかっている人向けです</p>
+    <p>
+      <code>outbox.json</code>に入っているトゥート<code>toot = orderedItems[i]</code>から、<br>
+      DMについて
+      <ul>
+        <li><code>type</code>を<code>"DM"</code>に変更</li>
+        <li><code>object</code>を<code>null</code>に変更</li>
+      </ul>
+      鍵トゥについて
+      <ul>
+        <li><code>type</code>を<code>"locked"</code>に変更</li>
+      </ul>
+      します。      
+    </p>
+    <p>
+      DM判定部分は
+      <pre>
+        <code>
+          var public = "https://www.w3.org/ns/activitystreams#Public"
+          function accessRange(to, cc){
+            follower = `https://${account[0]}/users/${account[1]}/followers`;
+            if(to.includes(public) && cc.includes(follower)){
+              return "all";
+            }else if(to.includes(follower) && cc.includes(public)){
+              return "notAll";
+            }else if(to.includes(follower) && !(cc.includes(public) && cc.includes(follower))){
+              return "locked";
+            }else{
+              return "DM";
+            }
+          }  
+        </code>
+      </pre>
+      書き換え部分は
+      <code>
+        <pre>
+          if(toot.type == "Create"){
+            //自分のトゥについて
+            if(accessRange(toot.to, toot.cc)=="DM"){
+              //DMを消す
+              toot.type = "DM";
+              toot.object = null;
+            }if(accessRange(toot.to, toot.cc)=="locked"){
+              //鍵トゥ表示だけする
+              toot.type = "locked";
+              //toot.object = "鍵トゥなので非表示です";
+            }if(accessRange(toot.to, toot.cc)=="notAll"){
+              //未収載トゥに対する処理
+            }
+          }
+        </pre>
+      </code>
+      詳細はgithubを参照ください
+    </p>
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
