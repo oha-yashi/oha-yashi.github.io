@@ -9,6 +9,11 @@
     <h1>@hys2490@mstdn.jpの残留思念</h1>
     <p>アーカイブ済みトゥート数 : <span id="num"></span></p>
     <p>最終トゥート : <span id="lasttoot"></span></p>
+    <p>[first, last) の範囲を表示。first = last とするとそのトゥートのみ表示</p>
+    <label for="first">first : </label><input type="number" id="first" min="0"><br>
+    <label for="last" >last  : </label><input type="number" id="last" min="0"><br>
+    <button id="loadbutton">範囲リロード</button>
+
     <ul id="jp"></ul>
 
     <div>
