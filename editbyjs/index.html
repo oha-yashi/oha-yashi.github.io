@@ -105,11 +105,11 @@
               toot.type = "DM";
               toot.object = null;
             }if(accessRange(toot.to, toot.cc)=="locked"){
-              //鍵トゥ表示だけする
+              //鍵トゥのtype変更
               toot.type = "locked";
               //toot.object = "鍵トゥなので非表示です";
             }if(accessRange(toot.to, toot.cc)=="notAll"){
-              //未収載トゥに対する処理
+              //未収載トゥに対する処理 なし
             }
           }
         </pre>
