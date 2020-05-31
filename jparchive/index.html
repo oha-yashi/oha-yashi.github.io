@@ -9,10 +9,21 @@
     <h1>@hys2490@mstdn.jpの残留思念</h1>
     <p>アーカイブ済みトゥート数 : <span id="num"></span></p>
     <p>最終トゥート : <span id="lasttoot"></span></p>
-    <p>[first, last) の範囲を表示。first = last とするとそのトゥートのみ表示</p>
-    <label for="first">first : </label><input type="number" id="first" min="0"><br>
-    <label for="last" >last  : </label><input type="number" id="last" min="0"><br>
-    <button id="loadbutton">範囲リロード</button>
+    <div id="range">
+      <h2>範囲表示</h2>
+      <p>[first, last) の範囲を表示。first = last とするとそのトゥートのみ表示</p>
+      <label for="first">first : </label><input type="number" id="first" min="0"><br>
+      <label for="last" >last  : </label><input type="number" id="last" min="0"><br>
+      <button id="loadbutton">範囲リロード</button>
+    </div>
+
+    <div id="search">
+      <h2>検索機能</h2>
+      <p>検索窓に入れた文字列を含むトゥートを新しい方から順に検索<br>
+      正規表現で入力 → or検索は "hoge|fuga" と入力<br>
+      ハッシュタグは "#.+タグ" と入力（JSON内部では<code> #&lt;span&gt;タグ&lt;/span&gt; </code>となっているため）</p>
+      <input type="text" id="searchwindow"> <button id="searchbutton">検索！</button> <span id="hit"></span>
+    </div>
 
     <ul id="jp"></ul>
 
