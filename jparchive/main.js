@@ -53,6 +53,7 @@ function showarchive(first, last){
       /** 追加タイプ DM のとき */
       info.html("<p>❌DMなので非表示です<p>");
     }else if(toot.type == "locked"){
+      /** 追加タイプ locked のとき */
       info.append("<p>🔒 これは鍵トゥです</p>")
       info.append(toot.object.content);
     }

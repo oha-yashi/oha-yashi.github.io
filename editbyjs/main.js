@@ -1,9 +1,9 @@
-const showField = $("#show");
-const dlButton = $("#dl");
-const loadButton = $("#loadjson");
+const getfile = document.getElementById("getfile");
 const serverinput = $("#server");
 const nameinput = $("#name");
-const getfile = document.getElementById("getfile");
+const loadButton = $("#loadjson");
+const dlButton = $("#dl");
+const showField = $("#show");
 
 var account = []; //アカウントのインスタンスとユーザー名を入れる
 var public = "https://www.w3.org/ns/activitystreams#Public"
@@ -49,14 +49,14 @@ getfile.onchange = function(){
 
 loadButton.click(function(){
   var instans = serverinput.val();
-  if(instans.length>0){
+  if(instans.length > 0){
     account[0] = instans;
   }else{
     showField.text("サーバー名を入れてください");
     return;
   }
   var username = nameinput.val();
-  if(username.length>0){
+  if(username.length > 0){
     account[1] = username;
   }else{
     showField.text("アカウント名を入れてください");
@@ -94,7 +94,6 @@ function editdata(){
       }if(accessRange(toot.to, toot.cc)=="locked"){
         //鍵トゥ表示だけする
         toot.type = "locked";
-        //toot.object = "鍵トゥなので非表示です";
       }if(accessRange(toot.to, toot.cc)=="notAll"){
         //未収載トゥに対する処理
       }
