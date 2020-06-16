@@ -99,38 +99,27 @@
                 <a class="myref" href="kaomoji/index.html"></a>
             </li>
 
+            <li>
+                mathjax: MathJax覚書き →
+                <a class="myref" href="mathjax/index.html"></a>
+            </li>
+
         </ul>
 
         <p>ブログ : <a rel="me" href="https://o-treetree.hatenablog.com/">おはやし日記</a></p>
         <p>mstdn.jp : <a rel="me" href="https://mstdn.jp/@hys2490">おはやし🌲🌲</a></p>
-        <p>jp鯖は6月末で閉鎖になる見込みです。今後は</p>
+        <p><s>jp鯖は6月末で閉鎖になる見込みです。今後は</s>無事譲渡されたので移行はしないです</p>
         <p>best-friends.chat : <a rel="me" href="https://best-friends.chat/@hys2490">おはやし🌴🌴 </a></p>
 
-        <hr>
-
-        ↓$\mathrm{MathJax}$のテスト<br>
-        2次方程式 $ax^2 + bx + c =0$ の解は
-        $$
-        x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
-        $$
-        である。<br>
-        和記号の上下を綺麗に出すには<span>$$</span>で囲う
-        $$
-        \sum_{i=0}^{2}A_i = A_0 + A_1 + A_2
-        $$
-        単に<span>$</span>で囲うと（インライン）こうなる→$\sum_{i=0}^{2}A_i = A_0 + A_1 + A_2$
-
     <!-- MathJaxをつかう使うためのjavascript -->
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({ tex2jax: { 
-            
-            inlineMath: [['$','$'], ["\\(","\\)"]] 
-            //*/
-        } });
-    </script>
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML">
-    </script>
+        <script>
+            MathJax = {
+                tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
+                svg: {fontCache: 'global'},
+                tags: 'ams',  // should be 'ams', 'none', or 'all'
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
         <script>
             var allMyref = document.querySelectorAll(".myref");

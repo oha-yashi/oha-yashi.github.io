@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>MathJax 覚書き</title>
+  </head>
+  <body>
+    <a href="">はてなブログで綺麗に数式を表示する方法（MathJax覚書き）</a>
+
+    <div>
+      <span>$\LaTeX$</span>
+    </div>
+
+    <script>
+      MathJax = {
+          tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
+          svg: {fontCache: 'global'},
+          tags: 'ams',  // should be 'ams', 'none', or 'all'
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  </body>
+</html>
