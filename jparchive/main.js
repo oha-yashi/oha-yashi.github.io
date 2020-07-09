@@ -69,7 +69,11 @@ function printToot(i){
     info.append(toot.object.content);
   }
   /** 時刻情報をつけてappend */
-  $("<p>").addClass("small").html(
+  $("<a>").addClass("small").attr({
+    href:toot.object.url,
+    target:"_blank",
+    rel:"noopener noreferrer"
+  }).text(
     `No.${i} at ${toJST(toot.published)}`
   ).appendTo(info);
 
