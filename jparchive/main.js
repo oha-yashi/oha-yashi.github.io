@@ -109,7 +109,9 @@ searchButton.click(function(){
   var findnum = 0;
   var re = RegExp(s);
   for(i=tootsize-1; i>=0; i--){
-    if(re.test(data.orderedItems[i].object.content)){
+    var toot = data.orderedItems[i].object;
+    if(toot!=null  && re.test(toot.content)){
+      /** DMはnullになっているので弾かないとエラーになる */
       printToot(i);
       findnum++;
     }
