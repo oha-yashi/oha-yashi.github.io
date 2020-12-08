@@ -1,0 +1,9 @@
+body{
+  background-color: white;
+}
+.small{
+  font-size: small;
+}
+.hide, .hide a{
+  color: white;
+}
